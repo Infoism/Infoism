@@ -11,7 +11,6 @@ coverage
 # next.js
 .next/
 out/
-build
 
 # misc
 .DS_Store
@@ -31,3 +30,6 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# output
+dist
