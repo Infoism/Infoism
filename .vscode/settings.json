@@ -1,0 +1,20 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "i18n-ally.localesPaths": ["packages/locales"],
+  "i18n-ally.translate.engines": ["google", "google-cn", "deepl", "libretranslate"],
+  "i18n-ally.extract.autoDetect": true,
+  "i18n-ally.enabledFrameworks": ["vue", "react"],
+  "i18n-ally.sourceLanguage": "zh-cn",
+  "i18n-ally.displayLanguage": "zh-cn",
+  "i18n-ally.extract.keygenStyle": "camelCase",
+  "i18n-ally.keystyle": "nested",
+  "cSpell.words": ["vuedraggable"]
+}

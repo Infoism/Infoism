@@ -1,0 +1,39 @@
+:root {
+  --color-primary: #fccf31;
+  --color-success: #36ab88;
+  --color-info: #368fab;
+  --color-warning: #aba336;
+  --color-danger: #ab3e36;
+  --color-background-default: #22272e;
+  --color-background-inset: #1c2128;
+  --color-border-default: #444c56;
+  --color-border-muted: #373e47;
+  --color-background-sidebar: var(--color-background-default);
+  --color-background-active: #2d333b;
+  --color-text-default: #adbac7;
+}
+
+* {
+  user-select: none;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--color-background-inset);
+  -webkit-app-region: drag;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+button,
+a {
+  -webkit-app-region: no-drag;
+}
+
+#__qiankun_microapp_wrapper_for_vue_app__ {
+  height: 100%;
+}
