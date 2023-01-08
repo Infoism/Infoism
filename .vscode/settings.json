@@ -16,5 +16,20 @@
   "i18n-ally.displayLanguage": "zh-cn",
   "i18n-ally.extract.keygenStyle": "camelCase",
   "i18n-ally.keystyle": "nested",
-  "cSpell.words": ["vuedraggable"]
+  "cSpell.words": [
+    "vuedraggable"
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/node_modules": true
+  }
 }

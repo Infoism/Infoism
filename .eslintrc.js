@@ -4,7 +4,8 @@ module.exports = {
     es2021: true,
     node: true
   },
-  extends: ['airbnb-base', 'plugin:prettier/recommended'], // 覆盖eslint格式配置,写在最后
+  parser: '@typescript-eslint/parser',
+  extends: ['plugin:prettier/recommended'], // 覆盖eslint格式配置,写在最后
   parserOptions: {
     ecmaVersion: 13
   }

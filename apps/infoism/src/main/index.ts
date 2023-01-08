@@ -4,6 +4,7 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 function createWindow(): void {
   // Create the browser window.
+
   const mainWindow = new BrowserWindow({
     width: 900,
     minWidth: 900,
@@ -12,11 +13,13 @@ function createWindow(): void {
     frame: false,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux'
+    ...(process.platform === 'win32'
       ? {
-          icon: path.join(__dirname, '../../build/icon.png')
+          icon: path.join(__dirname, '../../build/icon.ico')
         }
-      : {}),
+      : {
+          icon: path.join(__dirname, '../../build/icon.png')
+        }),
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false
