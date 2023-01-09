@@ -20,11 +20,12 @@
     "build:linux": "npm run build && electron-builder --linux --config"
   },
   "dependencies": {
+    "@infoism/core": "*",
+    "@infoism/locales": "*",
     "@electron-toolkit/preload": "^1.0.2",
     "@electron-toolkit/utils": "^1.0.2",
     "@vueuse/core": "^9.10.0",
     "electron-updater": "^5.3.0",
-    "@infoism/locales": "*",
     "i18next-vue": "^2.1.1",
     "pinia": "^2.0.28",
     "qiankun": "^2.8.4",
