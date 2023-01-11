@@ -1,39 +1,30 @@
 <template>
   <Draggable v-model="sidebarOptions" item-key="id">
     <template #item="{ element }">
-      <SidebarButton color-text flex flex-col flex-1 :icon="element.icon"
-        :active="element.path ? route.path.startsWith(element.path) : false"
-        @click="MenuBtnOnClickGenerator(element)()"></SidebarButton>
+      <RouterLink :to="element.path">
+        <SidebarButton color-text flex flex-col flex-1 :icon="element.icon"
+          :active="element.path ? route.path.startsWith(element.path) : false"></SidebarButton>
+      </RouterLink>
     </template>
   </Draggable>
 </template>
 
 <script setup lang="ts">
+// import components
 import SidebarButton from './SidebarButton.vue'
-import { useSidebar, buttonGroupOptions, buttonOption } from '@/composable/useSidebar'
-import { useRoute, useRouter } from 'vue-router'
 import Draggable from 'vuedraggable'
+import { RouterLink } from 'vue-router'
+import { useSidebar, buttonGroupOptions } from '@/composable/useSidebar'
+import { useRoute } from 'vue-router'
 
-const { sidebarOptions } = useSidebar()
-
-const router = useRouter()
-
-const route = useRoute()
+// props definition
 defineProps<{
   options: buttonGroupOptions
 }>()
 
-const MenuBtnOnClickGenerator = function (option: buttonOption): () => void {
-  return () => {
-    const { path } = option
+const { sidebarOptions } = useSidebar()
+const route = useRoute()
 
-    if (!path) {
-      return
-    }
-
-    router.push(path)
-  }
-}
 </script>
 
 <style scoped>

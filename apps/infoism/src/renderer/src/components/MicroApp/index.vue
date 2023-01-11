@@ -8,7 +8,6 @@ import { generateMicroAppsConfiguration } from '@/services/microapps'
 import { useRoute } from 'vue-router'
 
 const MicroApps = generateMicroAppsConfiguration()
-console.log(MicroApps);
 const route = useRoute()
 
 </script>

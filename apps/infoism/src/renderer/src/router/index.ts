@@ -14,16 +14,14 @@ export const router = createRouter({
 const microAppMap = {}
 
 // 路由守卫
-router.beforeEach((to, from) => {
+router.beforeEach((to, _from) => {
   const { path } = to
   const pluginName = path.slice(1)
   if (path in microAppMap) {
     return true
   }
-  console.log(to, from, pluginList, pluginName)
   if (pluginList.includes(pluginName)) {
     const plugin = loadPlugins().find((item) => item.name === pluginName)
-    console.log(plugin)
     if (plugin) {
       loadMicroApp({
         name: plugin.name,
