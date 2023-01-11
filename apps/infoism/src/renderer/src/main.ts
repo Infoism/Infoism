@@ -4,7 +4,6 @@ import i18next from '@infoism/locales'
 import i18NextVue from 'i18next-vue'
 import { router } from './router'
 import { createPinia } from 'pinia'
-import '@vueuse/shared'
 import 'uno.css'
 
 const pinia = createPinia()

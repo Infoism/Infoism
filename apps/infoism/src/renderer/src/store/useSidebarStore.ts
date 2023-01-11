@@ -1,25 +1,18 @@
+import '@vueuse/shared'
 import { useStorage } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { STORAGE_KEYS } from '@/constant'
+import { generateDefaultSidebar } from '@/services/microapps/sidebar'
 
-const defaultSidebar = [
-  {
-    icon: 'i-carbon-logo-vue',
-    path: '/vue'
-  },
-  {
-    icon: 'i-clarity-search-line',
-    path: '/search'
-  },
-  {
-    icon: 'i-clarity-favorite-line',
-    path: '/favorite'
-  },
-  {
-    icon: 'i-carbon-recently-viewed',
-    path: '/recent'
-  }
-]
+export type buttonOption = {
+  icon: string
+  path?: string
+  activeRule?: string | RegExp
+}
+
+export type buttonGroupOptions = buttonOption[]
+
+const defaultSidebar = generateDefaultSidebar()
 
 export const useSidebarStore = defineStore('sidebar', () => {
   const sidebarOptions = useStorage(STORAGE_KEYS.SIDEBAR_OPTIONS, defaultSidebar, localStorage)

@@ -1,23 +1,16 @@
 <template>
   <Draggable v-model="sidebarStore.sidebarOptions" item-key="id">
     <template #item="{ element }">
-      <SidebarButton
-        color-text
-        flex
-        flex-col
-        flex-1
-        :icon="element.icon"
+      <SidebarButton color-text flex flex-col flex-1 :icon="element.icon"
         :active="element.path ? route.path.startsWith(element.path) : false"
-        @click="MenuBtnOnClickGenerator(element)()"
-      ></SidebarButton>
+        @click="MenuBtnOnClickGenerator(element)()"></SidebarButton>
     </template>
   </Draggable>
 </template>
 
 <script setup lang="ts">
-import { buttonGroupOptions, buttonOption } from './constant'
 import SidebarButton from './SidebarButton.vue'
-import { useSidebarStore } from '@/store'
+import { useSidebarStore, buttonGroupOptions, buttonOption } from '@/store'
 import { useRoute, useRouter } from 'vue-router'
 import Draggable from 'vuedraggable'
 
@@ -32,21 +25,17 @@ defineProps<{
 
 const MenuBtnOnClickGenerator = function (option: buttonOption): () => void {
   return () => {
-    const { path, callback } = option
+    const { path } = option
 
-    if (!path && !callback) {
+    if (!path) {
       return
     }
 
-    if (typeof callback === 'function') {
-      setTimeout(callback, 0)
-    }
-
-    if (path) {
-      router.push(path)
-    }
+    router.push(path)
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>

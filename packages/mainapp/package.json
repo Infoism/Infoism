@@ -1,5 +1,5 @@
 {
-  "name": "@infoism/core",
+  "name": "@infoism/main",
   "version": "1.0.0",
   "description": "",
   "module": "dist/index.esm.js",
@@ -13,16 +13,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@infoism/lib": "^1.0.0"
+    "@infoism/lib": "*"
   },
   "devDependencies": {
-    "vite-plugin-qiankun": "^1.0.15",
     "@rollup/plugin-typescript": "^11.0.0",
     "rollup": "^3.9.1",
+    "qiankun": "^2.8.4",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
-    "vite-plugin-qiankun": "^1.0.15",
-    "pinia": "^2.0.28"
+    "qiankun": "^2.8.4"
   }
 }
