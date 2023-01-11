@@ -1,10 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
-import { generateRoute } from '@/services/microapps/routes'
+import { generatePluginRoutes } from '@/services/microapps/routes'
 import { loadPlugins, pluginList } from '@/services/microapps'
 import { loadMicroApp } from '@infoism/main'
 
-export const routes: RouteRecordRaw[] = generateRoute()
+export const routes: RouteRecordRaw[] = generatePluginRoutes()
 
 export const router = createRouter({
   history: createWebHashHistory(),
