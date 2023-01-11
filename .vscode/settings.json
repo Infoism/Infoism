@@ -31,5 +31,6 @@
     "**/.project": true,
     "**/.settings": true,
     "**/node_modules": false
-  }
+  },
+  "unocss.root": "apps/infoism"
 }
