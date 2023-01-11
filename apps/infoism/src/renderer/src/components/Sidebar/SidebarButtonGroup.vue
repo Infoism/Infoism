@@ -1,5 +1,5 @@
 <template>
-  <Draggable v-model="sidebarStore.sidebarOptions" item-key="id">
+  <Draggable v-model="sidebarOptions" item-key="id">
     <template #item="{ element }">
       <SidebarButton color-text flex flex-col flex-1 :icon="element.icon"
         :active="element.path ? route.path.startsWith(element.path) : false"
@@ -10,11 +10,11 @@
 
 <script setup lang="ts">
 import SidebarButton from './SidebarButton.vue'
-import { useSidebarStore, buttonGroupOptions, buttonOption } from '@/store'
+import { useSidebar, buttonGroupOptions, buttonOption } from '@/composable/useSidebar'
 import { useRoute, useRouter } from 'vue-router'
 import Draggable from 'vuedraggable'
 
-const sidebarStore = useSidebarStore()
+const { sidebarOptions } = useSidebar()
 
 const router = useRouter()
 

@@ -1,8 +1,6 @@
-import '@vueuse/shared'
-import { useStorage } from '@vueuse/core'
-import { defineStore } from 'pinia'
 import { STORAGE_KEYS } from '@/constant'
-import { generateDefaultSidebar } from '@/services/microapps/sidebar'
+import { loadPlugins } from '@/services/microapps'
+import '@vueuse/shared'
 
 export type buttonOption = {
   icon: string
@@ -12,9 +10,17 @@ export type buttonOption = {
 
 export type buttonGroupOptions = buttonOption[]
 
+export function generateDefaultSidebar() {
+  const plugins = loadPlugins()
+  return plugins.map((plugin) => ({
+    icon: plugin.icon,
+    path: '/' + plugin.name
+  }))
+}
+
 const defaultSidebar = generateDefaultSidebar()
 
-export const useSidebarStore = defineStore('sidebar', () => {
+export function useSidebar() {
   const sidebarOptions = useStorage(STORAGE_KEYS.SIDEBAR_OPTIONS, defaultSidebar, localStorage)
   return { sidebarOptions }
-})
+}
