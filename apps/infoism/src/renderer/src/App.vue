@@ -10,7 +10,7 @@ import Header from '@/components/Header/index.vue'
     <div flex flex-col h-full w-full>
       <Header></Header>
       <div h-full w-full class="microapp-container">
-        <div class="microapp" h-full w-full border-rd-lt-4 overflow-hidden border-l-solid border-t-solid border-1px>
+        <div class="microapp" h-full w-full border-rd-lt-2 overflow-hidden border-l-solid border-t-solid border-1px>
           <MicroApp></MicroApp>
         </div>
       </div>

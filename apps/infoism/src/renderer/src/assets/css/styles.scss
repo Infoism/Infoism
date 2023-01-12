@@ -1,4 +1,7 @@
 :root {
+  color-scheme: light dark;
+  color: var(--color-text-default);
+  background-color: var(--color-background-default);
   --color-primary: #fccf31;
   --color-success: #36ab88;
   --color-info: #368fab;
@@ -15,8 +18,18 @@
   --color-text-default: #adbac7;
 }
 
+*:focus-visible {
+  outline: none;
+}
+
 * {
   user-select: none;
+  background-color: var(--color-background-default);
+}
+
+input {
+  background-color: var(--color-background-inset);
+  border: solid 1px var(--color-border-muted)
 }
 
 html {
@@ -32,6 +45,7 @@ body {
 }
 
 button,
+input,
 a {
   -webkit-app-region: no-drag;
 }

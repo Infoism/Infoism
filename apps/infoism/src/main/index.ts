@@ -1,10 +1,11 @@
-import { app, shell, BrowserWindow } from 'electron'
+import { app, shell, BrowserWindow, ipcRenderer, ipcMain } from 'electron'
 import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import installExtensions, {
   REACT_DEVELOPER_TOOLS,
   VUEJS3_DEVTOOLS
 } from 'electron-devtools-installer'
+import initApiHandlers from './services/api'
 
 function createWindow(): void {
   // Create the browser window.
@@ -29,6 +30,9 @@ function createWindow(): void {
       sandbox: false
     }
   })
+
+  // init preload api handlers
+  initApiHandlers(mainWindow)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
