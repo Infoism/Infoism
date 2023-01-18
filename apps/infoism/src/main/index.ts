@@ -1,11 +1,11 @@
-import { app, shell, BrowserWindow, ipcRenderer, ipcMain } from 'electron'
+import { app, shell, BrowserWindow } from 'electron'
 import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import installExtensions, {
   REACT_DEVELOPER_TOOLS,
   VUEJS3_DEVTOOLS
 } from 'electron-devtools-installer'
-import initApiHandlers from './services/api'
+import initApiHandlers from './services/bridge'
 
 function createWindow(): void {
   // Create the browser window.

@@ -29,5 +29,6 @@ export const registerMicroApp = (qiankunLifeCycle: QiankunLifeCycle) => {
     }
   }
 }
+export * from '@infoism/lib'
 
 export default registerMicroApp

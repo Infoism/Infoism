@@ -1,24 +1,8 @@
 const infoismHandler = {}
 
-type eventCallbackFn = (_event: unknown) => {}
+export interface iInfoism extends Record<any, any> {}
 
-interface iInfoism {
-  on: {
-    enter: (cb: eventCallbackFn) => void
-    leave: (cb: eventCallbackFn) => void
-  }
-}
-
-const rawInfoismInstance: iInfoism = {
-  on: {
-    enter() {
-      return
-    },
-    leave() {
-      return
-    }
-  }
-}
+const rawInfoismInstance: iInfoism = {}
 
 /**
  * get the global infoism instance
