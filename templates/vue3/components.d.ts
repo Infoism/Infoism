@@ -7,8 +7,14 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AButton: typeof import('@arco-design/web-vue')['Button']
+    APlace: typeof import('@arco-design/web-vue')['Place']
+    ASpace: typeof import('@arco-design/web-vue')['Space']
+    ASwitch: typeof import('@arco-design/web-vue')['Switch']
+    AText: typeof import('@arco-design/web-vue')['Text']
+    ATypographyText: typeof import('@arco-design/web-vue')['TypographyText']
     Bridges: typeof import('./src/components/Bridges.vue')['default']
-    HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    Events: typeof import('./src/components/Events.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

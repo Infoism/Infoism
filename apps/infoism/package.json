@@ -37,6 +37,7 @@
     "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
+    "@arco-design/web-vue": "^2.42.0",
     "@electron-toolkit/tsconfig": "^1.0.1",
     "@electron/notarize": "^1.2.3",
     "@iconify-json/carbon": "^1.1.13",
@@ -44,6 +45,7 @@
     "@rushstack/eslint-patch": "^1.2.0",
     "@types/node": "16.11.22",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
     "electron": "^21.3.0",
