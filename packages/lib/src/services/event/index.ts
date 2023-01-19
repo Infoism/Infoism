@@ -48,24 +48,33 @@ export const initEventObject: IEvent = {
 
 interface IEventWithScope extends Record<string, IEvent> {}
 
-export const triggerEvent = function (
-  scope: string,
-  eventName: EVENT_NAMES,
-  ...payloads: unknown[]
-) {
-  const target = Event[scope]
-  if (!target) {
-    console.warn(`scope ${scope} is undefined`)
+export const triggerEvents = function (eventName: EVENT_NAMES, payloads: unknown, scope?: string) {
+  if (!scope) {
+    // trigger all events
+    for (const scope in Event) {
+      if (Object.prototype.hasOwnProperty.call(Event, scope)) {
+        trigger(scope)
+      }
+    }
     return
   }
-  const listeners = target[eventName]
-  if (!Array.isArray(listeners)) {
-    return
+  trigger(scope)
+
+  function trigger(scope: string) {
+    const target = Event[scope]
+    if (!target) {
+      console.warn(`scope ${scope} is undefined`)
+      return
+    }
+    const listeners = target[eventName]
+    if (!Array.isArray(listeners)) {
+      return
+    }
+    // trigger events
+    listeners.forEach((listener) => {
+      listener(payloads)
+    })
   }
-  // trigger events
-  listeners.forEach((listener) => {
-    listener(payloads)
-  })
 }
 
 export const Event = createInstanceNamespace<IEventWithScope>(NAMESPACES.EVENT)
