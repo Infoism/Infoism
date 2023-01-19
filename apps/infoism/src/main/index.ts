@@ -6,6 +6,7 @@ import installExtensions, {
   VUEJS3_DEVTOOLS
 } from 'electron-devtools-installer'
 import initApiHandlers from './services/bridge'
+import initEventListeners from './services/event'
 
 function createWindow(): void {
   // Create the browser window.
@@ -33,6 +34,9 @@ function createWindow(): void {
 
   // init preload api handlers
   initApiHandlers(mainWindow)
+
+  // init event listeners
+  initEventListeners(mainWindow)
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
