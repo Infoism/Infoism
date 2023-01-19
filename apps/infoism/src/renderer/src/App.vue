@@ -22,11 +22,11 @@ import Header from '@/components/Header/index.vue'
 @import './assets/css/styles.scss';
 
 .microapp-container {
-  background-color: var(--color-microapp-container);
+  background-color: var(--color-bg-1);
 }
 
 .microapp {
-  background-color: var(--color-background-inset);
-  border-color: var(--color-border-muted);
+  background-color: var(--color-bg-2);
+  border-color: var(--color-border-2);
 }
 </style>

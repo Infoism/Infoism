@@ -13,6 +13,6 @@ const {sidebarOptions} = useSidebar()
 
 <style scoped>
 .sidebar {
-  background-color: var(--color-background-sidebar);
+  background-color: var(--color-bg-1);
 }
 </style>

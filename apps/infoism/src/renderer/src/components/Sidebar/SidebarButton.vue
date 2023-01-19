@@ -1,17 +1,7 @@
 <template>
-  <div
-    w-12
-    h-12
-    b-l
-    b-primary
-    flex
-    items-center
-    justify-center
-    icon-btn
-    :class="{
-      active
-    }"
-  >
+  <div w-12 h-12 b-l flex items-center justify-center :class="{
+    active
+  }">
     <div :class="icon" w-6 h-6 p-0></div>
   </div>
 </template>
@@ -25,8 +15,8 @@ defineProps<{
 
 <style scoped>
 .active {
-  color: var(--color-primary);
+  color: rgb(var(--primary-6));
   box-shadow: inset 2px 0 0 0 white;
-  background-color: var(--color-background-active);
+  background-color: var(--color-bg-5);
 }
 </style>

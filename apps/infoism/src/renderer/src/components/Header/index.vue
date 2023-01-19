@@ -1,6 +1,8 @@
 <template>
   <header class="header" h-12 relative flex justify-center items-center>
-    <input type="text" placeholder="搜索" w50 h6 m-l-4 m-r-4 border-rd-2 pl4 pr4>
+    <a-space direction="vertical" size="large">
+      <a-input-search :style="{ width: '320px' }" placeholder="搜索" />
+    </a-space>
   </header>
 </template>
 
@@ -10,6 +12,6 @@
 
 <style scoped>
 .header {
-  background-color: var(--color-background-header);
+  background-color: var(--color-bg-1);
 }
 </style>

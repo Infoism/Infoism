@@ -1,21 +1,14 @@
-:root {
-  color-scheme: light dark;
-  color: var(--color-text-default);
-  background-color: var(--color-background-default);
-  --color-primary: #fccf31;
-  --color-success: #36ab88;
-  --color-info: #368fab;
-  --color-warning: #aba336;
-  --color-danger: #ab3e36;
-  --color-background-default: #22272e;
-  --color-background-inset: #1c2128;
-  --color-border-default: #444c56;
-  --color-border-muted: #373e47;
-  --color-background-sidebar: var(--color-background-default);
-  --color-background-header: var(--color-background-default);
-  --color-microapp-container: var(--color-background-default);
-  --color-background-active: #2d333b;
-  --color-text-default: #adbac7;
+body[arco-theme="dark"][theme-name="default"]{
+  --primary-1: var(--gold-1);
+  --primary-2: var(--gold-2);
+  --primary-3: var(--gold-3);
+  --primary-4: var(--gold-4);
+  --primary-5: var(--gold-5);
+  --primary-6: var(--gold-6);
+  --primary-7: var(--gold-7);
+  --primary-8: var(--gold-8);
+  --primary-9: var(--gold-9);
+  --primary-10: var(--gold-10);
 }
 
 *:focus-visible {
@@ -24,11 +17,7 @@
 
 * {
   user-select: none;
-}
-
-input {
-  background-color: var(--color-background-inset);
-  border: solid 1px var(--color-border-muted)
+  color: var(--color-text-2);
 }
 
 html {
@@ -36,7 +25,6 @@ html {
 }
 
 body {
-  background-color: var(--color-background-inset);
   -webkit-app-region: drag;
   height: 100vh;
   padding: 0;
@@ -47,6 +35,15 @@ button,
 input,
 a {
   -webkit-app-region: no-drag;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text-1);
 }
 
 #__qiankun_microapp_wrapper_for_vue_app__ {
