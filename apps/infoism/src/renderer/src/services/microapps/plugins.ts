@@ -1,6 +1,7 @@
 // @unocss-include
 export function loadPlugins() {
   // load plugins from bridge
+  // TODO icon replace by svg or png files
   // TODO load by bridge
   return [
     {

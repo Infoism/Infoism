@@ -1,8 +1,6 @@
 <template>
   <header class="header" h-12 relative flex justify-center items-center>
-    <div h6 w6 i-clarity-history-line></div>
-    <input type="text" w50 h6 m-l-4 m-r-4 border-rd-2 pl4 pr4>
-    <div h6 w6 i-clarity-add-line></div>
+    <input type="text" placeholder="搜索" w50 h6 m-l-4 m-r-4 border-rd-2 pl4 pr4>
   </header>
 </template>
 

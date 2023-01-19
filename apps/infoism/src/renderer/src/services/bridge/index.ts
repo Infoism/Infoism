@@ -11,7 +11,7 @@ function injection(channel: BRIDGES) {
 }
 
 export function injectBridges() {
-  ;[BRIDGES.CLOSE, BRIDGES.MINIMIZE, BRIDGES.MAXIMIZE, BRIDGES.UNMAXIMIZE].forEach((chanel) => {
+  Object.values(BRIDGES).forEach((chanel) => {
     injection(chanel)
   })
 }
