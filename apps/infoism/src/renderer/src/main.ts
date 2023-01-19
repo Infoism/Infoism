@@ -6,15 +6,8 @@ import { router } from './router'
 import { createPinia } from 'pinia'
 import 'uno.css'
 import { injectBridges } from './services/bridge'
-import { Event } from '@infoism/lib'
 
 const pinia = createPinia()
-setTimeout(() => {
-  console.log('object', Object.keys(Event), Event)
-  for (const key in Event) {
-    console.log(key, Event)
-  }
-}, 1000)
 
 injectBridges()
 

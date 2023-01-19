@@ -66,8 +66,6 @@ function createWindow(): void {
 app.whenReady().then(() => {
   if (process.env.NODE_ENV === 'development') {
     installExtensions([REACT_DEVELOPER_TOOLS, VUEJS3_DEVTOOLS])
-      .then((name) => console.log(`Added Extension:  ${name}`))
-      .catch((err) => console.log('An error occurred: ', err))
   }
   // Set app user model id for windows
   electronApp.setAppUserModelId('com.electron')

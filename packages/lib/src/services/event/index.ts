@@ -6,14 +6,66 @@ export enum EVENT_NAMES {
   UNMAXIMIZE = 'unmaximize'
 }
 
-export interface IEvent extends Record<EVENT_NAMES, () => void> {
-  listen: () => void
+type EventListener = (_event: unknown) => void
+
+type EventStorage = {
+  [k in EVENT_NAMES]?: EventListener[]
 }
 
-export const initEventObject = {
-  listen() {
-    console.log(this.listen, 'this')
+export interface IEvent extends EventStorage {
+  listen: (eventName: EVENT_NAMES, listener: EventListener, options: IEventListenerOptions) => void
+}
+
+interface IEventListenerOptions {
+  allowRepeat?: boolean
+}
+
+export const initEventObject: IEvent = {
+  listen(eventName: EVENT_NAMES, listener: EventListener, options: IEventListenerOptions = {}) {
+    const { allowRepeat } = options
+    let eventArr = this[eventName]
+    if (!eventArr) {
+      eventArr = []
+    }
+    if (!allowRepeat && eventArr.find((v) => v === listener)) {
+      console.warn(
+        `Listeners prevent repeated listening by default, if you want to change this behavior, please use "listen(${eventName}, listener, { allowRepeat: true })" instead`
+      )
+      return
+    }
+    if (Array.isArray(eventArr)) {
+      ;(eventArr as EventListener[]).push(listener)
+      function removeListener() {
+        const listenerIndex = (eventArr as EventListener[]).findIndex((v) => v === listener)
+        if (listenerIndex !== -1) {
+          eventArr?.splice(listenerIndex, 1)
+        }
+      }
+      return removeListener
+    }
   }
 }
 
-export const Event = createInstanceNamespace<IEvent>(NAMESPACES.EVENT)
+interface IEventWithScope extends Record<string, IEvent> {}
+
+export const triggerEvent = function (
+  scope: string,
+  eventName: EVENT_NAMES,
+  ...payloads: unknown[]
+) {
+  const target = Event[scope]
+  if (!target) {
+    console.warn(`scope ${scope} is undefined`)
+    return
+  }
+  const listeners = target[eventName]
+  if (!Array.isArray(listeners)) {
+    return
+  }
+  // trigger events
+  listeners.forEach((listener) => {
+    listener(payloads)
+  })
+}
+
+export const Event = createInstanceNamespace<IEventWithScope>(NAMESPACES.EVENT)
