@@ -6,14 +6,13 @@ import { useEvent } from '../services/useEvent'
 type EventFlags = {
   [k in EVENT_NAMES]: Ref<boolean>
 }
-let eventFlags = {} as EventFlags
-
-Object.keys(EVENT_NAMES).forEach((value: string) => {
+const eventFlags = Object.fromEntries(Object.keys(EVENT_NAMES).map((value: string) => {
   const eventName = value.toLowerCase()
-  eventFlags[eventName as EVENT_NAMES] = useEvent(eventName as EVENT_NAMES, () => {
+  const flag = useEvent(eventName as EVENT_NAMES, () => {
     alert(eventName)
   }, false)
-})
+  return [eventName, flag]
+})) as EventFlags
 
 defineProps<{ msg: string }>()
 </script>
