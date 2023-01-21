@@ -13,7 +13,11 @@ type EventStorage = {
 }
 
 export interface IEvent extends EventStorage {
-  listen: (eventName: EVENT_NAMES, listener: EventListener, options?: IEventListenerOptions) => void
+  listen: (
+    eventName: EVENT_NAMES,
+    listener: EventListener,
+    options?: IEventListenerOptions
+  ) => undefined | (() => void)
 }
 
 interface IEventListenerOptions {
