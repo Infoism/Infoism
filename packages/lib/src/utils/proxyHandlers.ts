@@ -45,6 +45,9 @@ export function createInstanceNamespace<T>(
   options: IInterfaceHandlerOptions = {}
 ) {
   const { scope, initValue } = options
+  if (scope && infoism?.[namespace]?.[scope]) {
+    return infoism[namespace][scope]
+  }
   if (initValue) {
     initInstance(initValue)
   } else {

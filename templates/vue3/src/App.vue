@@ -5,8 +5,8 @@ import Events from './components/Events.vue'
 
 <template>
   <div pl8>
-    <Bridges :msg="$t('bridges')" />
-    <Events :msg="$t('events')" />
+    <Bridges />
+    <Events />
   </div>
 </template>
 

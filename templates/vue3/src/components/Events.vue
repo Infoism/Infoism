@@ -14,11 +14,10 @@ const eventFlags = Object.fromEntries(Object.keys(EVENT_NAMES).map((value: strin
   return [eventName, flag]
 })) as EventFlags
 
-defineProps<{ msg: string }>()
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>Events</h1>
   <h3>{{ $t('chuangKou') }}</h3>
   <a-space wrap>
     <a-space>

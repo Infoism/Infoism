@@ -23,5 +23,9 @@ export default function initApiHandlers(mainWindow) {
   handle('unmaximize', () => {
     mainWindow?.unmaximize()
   })
+  // 判断窗口是否最大化
+  handle('isMaximized', () => {
+    return mainWindow.isMaximized()
+  })
   return
 }

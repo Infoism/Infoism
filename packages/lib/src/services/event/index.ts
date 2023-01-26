@@ -81,4 +81,14 @@ export const triggerEvents = function (eventName: EVENT_NAMES, payloads?: unknow
   }
 }
 
+export function initEventScope(scope: string) {
+  const event = createInstanceNamespace<IEvent>(NAMESPACES.EVENT, {
+    scope,
+    initValue: initEventObject
+  })
+  return event
+}
+
 export const Event = createInstanceNamespace<IEventWithScope>(NAMESPACES.EVENT)
+
+export const globalEvent = initEventScope('*')

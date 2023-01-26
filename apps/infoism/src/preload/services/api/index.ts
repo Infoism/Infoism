@@ -4,11 +4,13 @@ enum IPCChannels {
   CLOSE = 'close',
   MINIMIZE = 'minimize',
   MAXIMIZE = 'maximize',
-  UN_MAXIMIZE = 'unMaximize'
+  UN_MAXIMIZE = 'unmaximize',
+  IS_MAXIMIZED = 'isMaximized'
 }
 function invokeMethodGenerator(channel: IPCChannels) {
-  return () => {
-    ipcRenderer.invoke(channel)
+  return async () => {
+    const res = await ipcRenderer.invoke(channel)
+    return res
   }
 }
 
@@ -17,7 +19,8 @@ function initPreloadApi(): PreloadApi {
     close: invokeMethodGenerator(IPCChannels.CLOSE),
     minimize: invokeMethodGenerator(IPCChannels.MINIMIZE),
     maximize: invokeMethodGenerator(IPCChannels.MAXIMIZE),
-    unMaximize: invokeMethodGenerator(IPCChannels.UN_MAXIMIZE)
+    unMaximize: invokeMethodGenerator(IPCChannels.UN_MAXIMIZE),
+    isMaximized: invokeMethodGenerator(IPCChannels.IS_MAXIMIZED)
   }
 }
 

@@ -1,8 +1,10 @@
 import { injectBridge, BRIDGES } from '@infoism/lib'
 
 function bridgeGenerator(channel: string) {
-  return () => {
-    window.electron.ipcRenderer.invoke(channel)
+  return async () => {
+    const res = await window.electron.ipcRenderer.invoke(channel)
+    console.log(`bridge invoked: ${channel} -> `, res)
+    return res
   }
 }
 

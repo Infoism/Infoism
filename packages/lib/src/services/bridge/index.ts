@@ -4,10 +4,11 @@ export enum BRIDGE_NAMES {
   CLOSE = 'close',
   MAXIMIZE = 'maximize',
   MINIMIZE = 'minimize',
-  UNMAXIMIZE = 'unmaximize'
+  UN_MAXIMIZE = 'unmaximize',
+  IS_MAXIMIZED = 'isMaximized'
 }
 
-interface IBridge extends Record<BRIDGE_NAMES, () => void> {}
+interface IBridge extends Record<BRIDGE_NAMES, () => unknown> {}
 type Bridge = (...args: any[]) => void
 
 export const bridge = createInstanceNamespace<IBridge>(NAMESPACES.BRIDGE)

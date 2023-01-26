@@ -1,5 +1,5 @@
 import { createInstanceNamespace, NAMESPACES } from '../../utils/proxyHandlers'
-import { IEvent, initEventObject } from '../event'
+import { IEvent, initEventScope } from '../event'
 
 interface IMicroAppConfig {
   name?: string
@@ -20,10 +20,7 @@ export const registerMicroApp = (
     )
   }
   microApps[appName] = config
-  const event = createInstanceNamespace<IEvent>(NAMESPACES.EVENT, {
-    scope: appName,
-    initValue: initEventObject
-  })
+  const event = initEventScope(appName)
   return {
     event
   }

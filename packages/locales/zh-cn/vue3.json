@@ -14,5 +14,7 @@
   "close": "关闭",
   "chuangKou": "窗口",
   "bridges": "Bridges",
-  "events": "Events"
+  "events": "Events",
+  "souSuo": "搜索",
+  "checkIfWindowIsMaximized": "判断窗口当前是否最大化"
 }
