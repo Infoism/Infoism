@@ -1,9 +1,9 @@
 <template>
   <Draggable v-model="sidebarOptions" item-key="id">
-    <template #item="{ element }">
-      <RouterLink :to="element.path">
-        <SidebarButton color-text flex flex-col flex-1 :icon="element.icon"
-          :active="element.path ? route.path.startsWith(element.path) : false"></SidebarButton>
+    <template #item="{ element: buttonOption }">
+      <RouterLink :to="getCachePath(buttonOption)">
+        <SidebarButton color-text flex flex-col flex-1 :icon="buttonOption.icon" :active="isButtonActive(buttonOption)">
+        </SidebarButton>
       </RouterLink>
     </template>
   </Draggable>
@@ -14,16 +14,22 @@
 import SidebarButton from './SidebarButton.vue'
 import Draggable from 'vuedraggable'
 import { RouterLink } from 'vue-router'
-import { useSidebar, buttonGroupOptions } from '@/composable/useSidebar'
+import { useSidebar, buttonGroupOptions, ButtonOption } from '@/composable/useSidebar'
 import { useRoute } from 'vue-router'
+import { useAppCaches } from '@/store/useAppCaches'
 
 // props definition
 defineProps<{
   options: buttonGroupOptions
 }>()
 
-const { sidebarOptions } = useSidebar()
 const route = useRoute()
+const { sidebarOptions } = useSidebar()
+const { appCachesMap } = useAppCaches()
+const getCachePath = (buttonOption: ButtonOption) => {
+  return appCachesMap[buttonOption.name]?.fullPath || buttonOption.path || '/'
+}
+const isButtonActive = (buttonOption: ButtonOption) => (buttonOption.path ? route.path.startsWith(buttonOption.path) : false)
 
 </script>
 

@@ -1,34 +1,71 @@
-import type { RouteRecordRaw } from 'vue-router'
-import { createRouter, createWebHashHistory } from 'vue-router'
-import { generatePluginRoutes } from '@/services/microapps/routes'
+import { createRouter, createWebHistory } from 'vue-router'
 import { loadPlugins, pluginList } from '@/services/microapps'
 import { loadMicroApp } from 'qiankun'
-
-export const routes: RouteRecordRaw[] = generatePluginRoutes()
+import { useAppCaches } from '@/store/useAppCaches'
 
 export const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      name: 'layout',
+      component: import('@/components/Layout/index.vue'),
+      children: [
+        {
+          path: '/:appName/:path*',
+          name: 'microApp',
+          component: import('@/components/MicroApp/index.vue')
+        }
+      ]
+    }
+  ]
 })
 
-const microAppMap = {}
+function getAppNameFromPath(path: string) {
+  const pathRegExp = /\/?([a-zA-Z0-9]*)\/?.*/
+  return pathRegExp.exec(path)?.[1] || ''
+}
+
+function isMicro(appName: string) {
+  return pluginList.some((value) => {
+    return appName === value
+  })
+}
 
 // 路由守卫
-router.beforeEach((to, _from) => {
-  const { path } = to
-  const pluginName = path.slice(1)
-  if (path in microAppMap) {
-    return true
-  }
-  if (pluginList.includes(pluginName)) {
-    const plugin = loadPlugins().find((item) => item.name === pluginName)
-    if (plugin) {
-      loadMicroApp({
-        name: plugin.name,
-        entry: plugin.entry,
-        container: '#' + plugin.name
-      })
+export function initRouter() {
+  const { appCachesMap } = useAppCaches()
+  router.beforeEach((to, from) => {
+    const { path: nextPath } = to
+    const { path: lastPath } = from
+    const lastAppName = getAppNameFromPath(lastPath)
+    const nextAppName = getAppNameFromPath(nextPath)
+
+    // 缓存上级应用
+    if (isMicro(lastAppName)) {
+      appCachesMap[lastAppName].fullPath = location.pathname
     }
-  }
-  return true
-})
+
+    // 下级应用已经缓存则不再加载
+    if (nextAppName in appCachesMap) {
+      return true
+    }
+
+    // 加载应用
+    if (isMicro(nextAppName)) {
+      const plugin = loadPlugins().find((item) => nextAppName === item.name)
+      if (plugin) {
+        const micro = loadMicroApp({
+          name: plugin.name,
+          entry: plugin.entry,
+          container: '#' + plugin.name
+        })
+        appCachesMap[nextAppName] = {
+          ...micro,
+          fullPath: location.pathname
+        }
+      }
+    }
+    return true
+  })
+}

@@ -11,6 +11,14 @@ export function loadPlugins() {
       entry: '//localhost:3001',
       donateSite: 'https://buymeacoffee.com/pidanmeng',
       description: 'A micro app demo powered by vue'
+    },
+    {
+      name: 'react',
+      alias: 'react',
+      icon: 'i-carbon-logo-vue',
+      entry: '//localhost:3002',
+      donateSite: 'https://buymeacoffee.com/pidanmeng',
+      description: 'A micro app demo powered by vue'
     }
   ]
 }

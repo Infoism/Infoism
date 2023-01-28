@@ -1,27 +1,19 @@
 <script setup lang="ts">
-import Bridges from './components/Bridges.vue'
-import Events from './components/Events.vue'
+import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
   <div pl8>
-    <Bridges />
-    <Events />
+    <RouterLink no-drag to="/bridge">bridge</RouterLink>
+    <RouterLink no-drag to="/event">event</RouterLink>
+    <RouterView v-slot="{ Component }">
+      <KeepAlive>
+        <Component :is="Component"></Component>
+      </KeepAlive>
+    </RouterView>
   </div>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>
