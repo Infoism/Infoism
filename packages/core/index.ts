@@ -1,1 +1,1 @@
-export * from '@infoism/lib'
+export { bridge, registerMicroApp, EVENT_NAMES } from '@infoism/lib'
