@@ -8,7 +8,7 @@ import Header from '@/components/Header/index.vue'
     <Sidebar></Sidebar>
     <div flex flex-col h-full w-full>
       <Header></Header>
-      <div h-full w-full class="microapp-container">
+      <div h-full w-full no-drag class="microapp-container">
         <div class="microapp" h-full w-full border-rd-lt-2 overflow-hidden border-l-solid border-t-solid border-1px>
           <RouterView v-slot="{ Component }">
             <KeepAlive>
