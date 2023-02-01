@@ -18,8 +18,12 @@
 
 <script setup lang="ts">
 import { useTheme } from '@/store/useTheme';
+import { storeToRefs } from 'pinia'
 
-const { theme, changeTheme } = useTheme()
+const themeStore = useTheme()
+
+const { changeTheme } = themeStore
+const { theme } = storeToRefs(themeStore)
 
 </script>
 
