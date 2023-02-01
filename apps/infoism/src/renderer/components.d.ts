@@ -14,8 +14,12 @@ declare module '@vue/runtime-core' {
     MicroApp: typeof import('./src/components/MicroApp/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SearchButton: typeof import('./src/components/Header/SearchButton.vue')['default']
     Sidebar: typeof import('./src/components/Sidebar/index.vue')['default']
     SidebarButton: typeof import('./src/components/Sidebar/SidebarButton.vue')['default']
     SidebarButtonGroup: typeof import('./src/components/Sidebar/SidebarButtonGroup.vue')['default']
+    ToolBar: typeof import('./src/components/Header/ToolBar.vue')['default']
+    WindowContrller: typeof import('./src/components/Header/WindowContrller.vue')['default']
+    WindowController: typeof import('./src/components/Header/WindowController.vue')['default']
   }
 }

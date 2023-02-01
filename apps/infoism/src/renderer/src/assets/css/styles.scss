@@ -1,4 +1,4 @@
-body[arco-theme="dark"][theme-name="default"]{
+body[arco-theme="dark"][skin-name="default"]{
   --primary-1: var(--gold-1);
   --primary-2: var(--gold-2);
   --primary-3: var(--gold-3);
@@ -10,6 +10,18 @@ body[arco-theme="dark"][theme-name="default"]{
   --primary-9: var(--gold-9);
   --primary-10: var(--gold-10);
 }
+body[skin-name="default"]{
+  --primary-1: var(--blue-1);
+  --primary-2: var(--blue-2);
+  --primary-3: var(--blue-3);
+  --primary-4: var(--blue-4);
+  --primary-5: var(--blue-5);
+  --primary-6: var(--blue-6);
+  --primary-7: var(--blue-7);
+  --primary-8: var(--blue-8);
+  --primary-9: var(--blue-9);
+  --primary-10: var(--blue-10);
+}
 
 *:focus-visible {
   outline: none;
@@ -17,7 +29,10 @@ body[arco-theme="dark"][theme-name="default"]{
 
 * {
   user-select: none;
-  color: var(--color-text-2);
+}
+
+a {
+  color: var(--color-text-1);
 }
 
 html {
@@ -25,6 +40,7 @@ html {
 }
 
 body {
+  color: var(--color-text-2);
   -webkit-app-region: drag;
   height: 100vh;
   padding: 0;

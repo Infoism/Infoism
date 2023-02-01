@@ -34,6 +34,7 @@ importers:
       '@electron/notarize': ^1.2.3
       '@iconify-json/carbon': ^1.1.13
       '@iconify-json/clarity': ^1.1.7
+      '@iconify-json/ri': ^1.1.4
       '@infoism/lib': '*'
       '@infoism/locales': '*'
       '@rushstack/eslint-patch': ^1.2.0
@@ -57,6 +58,7 @@ importers:
       pinia: ^2.0.28
       prettier: ^2.7.1
       qiankun: ^2.8.4
+      sass: ^1.57.1
       typescript: ^4.9.3
       unocss: ^0.48.0
       unplugin-auto-import: ^0.12.1
@@ -87,6 +89,7 @@ importers:
       '@electron/notarize': 1.2.3
       '@iconify-json/carbon': 1.1.13
       '@iconify-json/clarity': 1.1.7
+      '@iconify-json/ri': 1.1.4
       '@rushstack/eslint-patch': 1.2.0
       '@types/node': 16.11.22
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.5+vue@3.2.45
@@ -101,10 +104,11 @@ importers:
       eslint-plugin-vue: 9.8.0_eslint@8.31.0
       less: 4.1.3
       prettier: 2.8.2
+      sass: 1.57.1
       typescript: 4.9.4
       unplugin-auto-import: 0.12.1_@vueuse+core@9.10.0
       unplugin-vue-components: 0.22.12_vue@3.2.45
-      vite: 3.2.5_mzi35on324ocz3odxgakx77nnm
+      vite: 3.2.5_o5t3jhqgpxhjzerdqnwudijuu4
       vue: 3.2.45
       vue-tsc: 1.0.22_typescript@4.9.4
 
@@ -859,6 +863,12 @@ packages:
       '@iconify/types': 2.0.0
     dev: true
 
+  /@iconify-json/ri/1.1.4:
+    resolution: {integrity: sha512-gAk2gQBVghgbMLOmbUCc3l4COMMH5sR3HhBqpjaPUFBbC4WsNNRyOD4RZgjlanU7DTgFrj4NarY5K2EkXaVxuw==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
   /@iconify/types/2.0.0:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
@@ -1409,7 +1419,7 @@ packages:
       chokidar: 3.5.3
       fast-glob: 3.2.12
       magic-string: 0.27.0
-      vite: 3.2.5_mzi35on324ocz3odxgakx77nnm
+      vite: 3.2.5_o5t3jhqgpxhjzerdqnwudijuu4
     transitivePeerDependencies:
       - rollup
     dev: false
@@ -1444,7 +1454,7 @@ packages:
       '@babel/core': 7.20.12
       '@babel/plugin-transform-typescript': 7.20.7_@babel+core@7.20.12
       '@vue/babel-plugin-jsx': 1.1.1_@babel+core@7.20.12
-      vite: 3.2.5_mzi35on324ocz3odxgakx77nnm
+      vite: 3.2.5_o5t3jhqgpxhjzerdqnwudijuu4
       vue: 3.2.45
     transitivePeerDependencies:
       - supports-color
@@ -1473,7 +1483,7 @@ packages:
       vite: ^3.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 3.2.5_mzi35on324ocz3odxgakx77nnm
+      vite: 3.2.5_o5t3jhqgpxhjzerdqnwudijuu4
       vue: 3.2.45
     dev: true
 
@@ -2584,7 +2594,7 @@ packages:
       esbuild: 0.16.15
       magic-string: 0.27.0
       picocolors: 1.0.0
-      vite: 3.2.5_mzi35on324ocz3odxgakx77nnm
+      vite: 3.2.5_o5t3jhqgpxhjzerdqnwudijuu4
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5438,7 +5448,7 @@ packages:
       vite: 4.0.4_sass@1.57.1
     dev: true
 
-  /vite/3.2.5_mzi35on324ocz3odxgakx77nnm:
+  /vite/3.2.5_o5t3jhqgpxhjzerdqnwudijuu4:
     resolution: {integrity: sha512-4mVEpXpSOgrssFZAOmGIr85wPHKvaDAcXqxVxVRZhljkJOMZi1ibLibzjLHzJvcok8BMguLc7g1W6W/GqZbLdQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -5469,6 +5479,7 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 2.79.1
+      sass: 1.57.1
     optionalDependencies:
       fsevents: 2.3.2
 

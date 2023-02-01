@@ -13,8 +13,8 @@ export function loadPlugins() {
       description: 'A micro app demo powered by vue'
     },
     {
-      name: 'react',
-      alias: 'react',
+      name: 'demo',
+      alias: 'demo',
       icon: 'i-carbon-logo-vue',
       entry: '//localhost:3002',
       donateSite: 'https://buymeacoffee.com/pidanmeng',
