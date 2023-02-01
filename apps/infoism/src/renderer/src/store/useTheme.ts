@@ -6,16 +6,16 @@ export const useTheme = defineStore('theme', () => {
   // 亮色主题 | 暗色主题
   const theme = ref(useStorage('theme', 'dark'))
   effect(() => {
-    document.body.setAttribute('arco-theme', theme.value)
+    document.body.setAttribute('arco-theme', unref(theme))
   })
   const changeTheme = () => {
-    theme.value = theme.value === 'dark' ? 'light' : 'dark'
+    theme.value = unref(theme) === 'dark' ? 'light' : 'dark'
   }
 
   // 换肤
   const skin = ref(useStorage('skin', 'default'))
   effect(() => {
-    document.body.setAttribute('skin-name', skin.value)
+    document.body.setAttribute('skin-name', unref(skin))
   })
   const changeSkin = (skinName: string) => {
     skin.value = skinName
