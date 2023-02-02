@@ -7,6 +7,7 @@ import { initRouter, router } from './router'
 import { createPinia } from 'pinia'
 import { injectBridges } from './services/bridge'
 import { injectEventListeners } from './services/event'
+import '@arco-design/web-vue/dist/arco.css'
 
 const pinia = createPinia()
 
