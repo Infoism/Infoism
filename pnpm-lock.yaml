@@ -34,6 +34,7 @@ importers:
       '@electron/notarize': ^1.2.3
       '@iconify-json/carbon': ^1.1.13
       '@iconify-json/clarity': ^1.1.7
+      '@iconify-json/mdi': ^1.1.45
       '@iconify-json/ri': ^1.1.4
       '@infoism/lib': '*'
       '@infoism/locales': '*'
@@ -89,6 +90,7 @@ importers:
       '@electron/notarize': 1.2.3
       '@iconify-json/carbon': 1.1.13
       '@iconify-json/clarity': 1.1.7
+      '@iconify-json/mdi': 1.1.45
       '@iconify-json/ri': 1.1.4
       '@rushstack/eslint-patch': 1.2.0
       '@types/node': 16.11.22
@@ -859,6 +861,12 @@ packages:
 
   /@iconify-json/clarity/1.1.7:
     resolution: {integrity: sha512-c6ulv1IsW76oSyGDgAazHjg5ZduInNhd1XjMvkjWqRZUfn6f2kzJTp0g/+Xq+TfBBDmb03yiL9gm7aZP9Ljs7Q==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/mdi/1.1.45:
+    resolution: {integrity: sha512-2f4n7qEErLi7jIabpDuaqZ/1FcAN62z0pUY9BvCxOyU6IzqCF1N3trHEF10aHdUOyFZF9YVb2DCigkZrcvnaLw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
