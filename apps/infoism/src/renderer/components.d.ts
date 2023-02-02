@@ -7,25 +7,20 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AAffix: typeof import('@arco-design/web-vue')['Affix']
-    AAnchor: typeof import('@arco-design/web-vue')['Anchor']
-    AAnchorLink: typeof import('@arco-design/web-vue')['AnchorLink']
+    AAlert: typeof import('@arco-design/web-vue')['Alert']
     AButton: typeof import('@arco-design/web-vue')['Button']
     ACol: typeof import('@arco-design/web-vue')['Col']
     ADivider: typeof import('@arco-design/web-vue')['Divider']
-    AInputSearch: typeof import('@arco-design/web-vue')['InputSearch']
-    AMenu: typeof import('@arco-design/web-vue')['Menu']
-    AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
     AOption: typeof import('@arco-design/web-vue')['Option']
     ARow: typeof import('@arco-design/web-vue')['Row']
     ASelect: typeof import('@arco-design/web-vue')['Select']
     ASpace: typeof import('@arco-design/web-vue')['Space']
-    ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
     ATabPane: typeof import('@arco-design/web-vue')['TabPane']
     ATabs: typeof import('@arco-design/web-vue')['Tabs']
     Header: typeof import('./src/components/Header/index.vue')['default']
     Layout: typeof import('./src/components/Layout/index.vue')['default']
     MicroApp: typeof import('./src/components/MicroApp/index.vue')['default']
+    ModalPluginStore: typeof import('./src/components/Modal/ModalPluginStore.vue')['default']
     ModalSettings: typeof import('./src/components/Modal/ModalSettings.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -34,7 +29,6 @@ declare module '@vue/runtime-core' {
     SidebarButton: typeof import('./src/components/Sidebar/SidebarButton.vue')['default']
     SidebarButtonGroup: typeof import('./src/components/Sidebar/SidebarButtonGroup.vue')['default']
     ToolBar: typeof import('./src/components/Header/ToolBar.vue')['default']
-    WindowContrller: typeof import('./src/components/Header/WindowContrller.vue')['default']
     WindowController: typeof import('./src/components/Header/WindowController.vue')['default']
   }
 }

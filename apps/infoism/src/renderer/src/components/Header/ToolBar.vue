@@ -10,7 +10,10 @@
       <div i-ri-moon-clear-fill></div>
     </div>
     <div btn-icon>
-      <div @click="handleClick()" i-ri-settings-5-fill></div>
+      <div @click="handleClickPluginStore()" i-ri-store-3-fill></div>
+    </div>
+    <div btn-icon>
+      <div @click="handleClickSetting()" i-ri-settings-5-fill></div>
     </div>
   </a-space>
 </template>
@@ -19,17 +22,20 @@
 import { useTheme } from '@/store/useTheme';
 import { Modal } from '@arco-design/web-vue';
 import { storeToRefs } from 'pinia'
-import { SettingsModal } from '../Modal';
+import { PluginStoreModal, SettingsModal } from '../Modal';
 
 const themeStore = useTheme()
 
 const { changeTheme } = themeStore
 const { theme } = storeToRefs(themeStore)
 
-const handleClick = () => {
+const handleClickSetting = () => {
   Modal.confirm(SettingsModal)
 }
 
+const handleClickPluginStore = () => {
+  Modal.confirm(PluginStoreModal)
+}
 </script>
 
 <style scoped lang="scss">

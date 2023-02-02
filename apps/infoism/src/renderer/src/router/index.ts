@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { loadPlugins, pluginList } from '@/services/microapps'
 import { loadMicroApp } from 'qiankun'
 import { useAppCaches } from '@/store/useAppCaches'
+import Layout from '@/components/Layout/index.vue'
+import MicroApp from '@/components/MicroApp/index.vue'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -9,12 +11,12 @@ export const router = createRouter({
     {
       path: '/',
       name: 'layout',
-      component: import('@/components/Layout/index.vue'),
+      component: Layout,
       children: [
         {
           path: '/:appName/:path*',
           name: 'microApp',
-          component: import('@/components/MicroApp/index.vue')
+          component: MicroApp
         }
       ]
     }

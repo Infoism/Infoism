@@ -14,7 +14,7 @@ function invokeMethodGenerator(channel: IPCChannels) {
   }
 }
 
-function initPreloadApi(): PreloadApi {
+function initPreloadApi() {
   return {
     close: invokeMethodGenerator(IPCChannels.CLOSE),
     minimize: invokeMethodGenerator(IPCChannels.MINIMIZE),
