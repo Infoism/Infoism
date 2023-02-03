@@ -6,6 +6,9 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: PreloadApi
+    env: {
+      base: string
+    }
   }
 }
 

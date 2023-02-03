@@ -1,14 +1,16 @@
 // @unocss-include
-export function loadPlugins() {
+export function loadPluginsMicroapp() {
   // load plugins from bridge
   // TODO icon replace by svg or png files
   // TODO load by bridge
-  return [
+  return reactive([
     {
       name: 'vue',
       alias: 'vue',
       icon: 'i-carbon-logo-vue',
-      entry: '//localhost:3001',
+      entry: import.meta.env.DEV
+        ? '//localhost:3001'
+        : 'C:\\Code\\infoism\\templates\\vue3\\dist\\index.html',
       donateSite: 'https://buymeacoffee.com/pidanmeng',
       description: 'A micro app demo powered by vue'
     },
@@ -16,11 +18,11 @@ export function loadPlugins() {
       name: 'demo',
       alias: 'demo',
       icon: 'i-carbon-logo-vue',
-      entry: '//localhost:3002',
+      entry: import.meta.env.DEV
+        ? '//localhost:3002'
+        : 'C:\\Code\\infoism-plugin-demo\\dist\\index.html',
       donateSite: 'https://buymeacoffee.com/pidanmeng',
       description: 'A micro app demo powered by vue'
     }
-  ]
+  ])
 }
-
-export const pluginList = loadPlugins().map((plugin) => plugin.name)

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/components/Layout/index.vue'
 import MicroApp from '@/components/MicroApp/MicroApp.vue'
-import { loadPlugins } from '@/services/microapps/plugins'
+import { loadPluginsMicroapp } from '@/services/plugins'
 
 function generateMicroApp(app) {
   const { entry, name } = app
@@ -12,15 +12,17 @@ function generateMicroApp(app) {
 }
 
 function generateRouterFromPlugins() {
-  return loadPlugins().map((app) => ({
-    path: `/${app.name}/:path*`,
+  const microapps = loadPluginsMicroapp()
+  return microapps.map((app) => ({
+    path: `/${app.name}`,
     name: app.name,
     component: generateMicroApp(app)
   }))
 }
 
+const base = import.meta.env.DEV ? undefined : window.env?.base
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(base),
   routes: [
     {
       path: '/',

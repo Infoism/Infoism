@@ -1,8 +1,10 @@
 <template>
-  <WujieVue :url="entry" :name="name" :alive="true" h-full w-full></WujieVue>
+  <WujieVue :url="entry" :plugins="plugins" :name="name" :alive="true" h-full w-full></WujieVue>
 </template>
 
 <script setup lang="ts">
+import { useMicroappPlugins } from '@/services/microapps/pluins'
+const plugins = useMicroappPlugins()
 defineProps<{
   entry: string;
   name: string;

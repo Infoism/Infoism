@@ -4,9 +4,9 @@
 </template>
 
 <script setup lang="ts">
-import { loadPlugins } from '@/services/microapps/plugins';
+import { usePluginsMicroapp } from '@/store/usePlugins'
 
-const MicroApps = loadPlugins()
+const MicroApps = usePluginsMicroapp()
 
 </script>
 
