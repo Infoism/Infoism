@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import qiankun from 'vite-plugin-qiankun'
 import env from './env.js'
 import unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -27,9 +26,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    qiankun(name, {
-      useDevMode: true
-    }),
     unocss(),
     Components({
       resolvers: [

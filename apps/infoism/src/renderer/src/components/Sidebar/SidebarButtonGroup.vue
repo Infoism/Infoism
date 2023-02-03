@@ -16,7 +16,6 @@ import Draggable from 'vuedraggable'
 import { RouterLink } from 'vue-router'
 import { useSidebar, buttonGroupOptions, ButtonOption } from '@/composable/useSidebar'
 import { useRoute } from 'vue-router'
-import { useAppCaches } from '@/store/useAppCaches'
 
 // props definition
 defineProps<{
@@ -25,9 +24,8 @@ defineProps<{
 
 const route = useRoute()
 const { sidebarOptions } = useSidebar()
-const { appCachesMap } = useAppCaches()
 const getCachePath = (buttonOption: ButtonOption) => {
-  return appCachesMap[buttonOption.name]?.fullPath || buttonOption.path || '/'
+  return buttonOption.path || '/'
 }
 const isButtonActive = (buttonOption: ButtonOption) => (buttonOption.path ? route.path.startsWith(buttonOption.path) : false)
 
