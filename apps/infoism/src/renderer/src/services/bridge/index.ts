@@ -1,19 +1,19 @@
-import { injectBridge, BRIDGES } from '@infoism/lib'
+import { injectBridge, IPCChannelsArr, IPCChannels } from '@infoism/lib'
 
 function bridgeGenerator(channel: string) {
-  return async () => {
-    const res = await window.electron.ipcRenderer.invoke(channel)
+  return async (...args) => {
+    const res = await window.electron.ipcRenderer.invoke(channel, ...args)
     console.log(`bridge invoked: ${channel} -> `, res)
     return res
   }
 }
 
-function injection(channel: BRIDGES) {
+function injection(channel: IPCChannels) {
   injectBridge(channel, bridgeGenerator(channel))
 }
 
 export function injectBridges() {
-  Object.values(BRIDGES).forEach((chanel) => {
+  IPCChannelsArr.forEach((chanel) => {
     injection(chanel)
   })
 }
