@@ -1,6 +1,6 @@
 import { STORAGE_KEYS } from '@/constant'
 import { loadPlugins } from '@/services/microapps'
-import '@vueuse/shared'
+import { useStorage } from '@vueuse/core'
 
 export type ButtonOption = {
   name: string

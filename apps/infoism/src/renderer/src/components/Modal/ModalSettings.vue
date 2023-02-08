@@ -45,6 +45,7 @@
 
 <script setup lang="ts">
 import { useConfig } from '@/store/useConfig';
+import { ref } from 'vue';
 
 const ContainerRef = ref()
 const configStore = useConfig()

@@ -18,6 +18,7 @@
 <script setup lang="ts">
 import { bridge } from '@infoism/lib';
 import { useIsWindowMaximized } from '@/composable/useWindowController';
+import { ref } from 'vue';
 let isWindowMaximized = ref<unknown>(false);
 useIsWindowMaximized(isWindowMaximized)
 </script>

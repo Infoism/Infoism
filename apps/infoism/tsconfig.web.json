@@ -1,11 +1,12 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
   "include": [
-    "src/*",
-    "src/**/*",
+    "src/renderer/*",
+    "src/renderer/**/*",
+    "src/renderer/src/env.d.ts",
     "src/renderer/src/**/*",
-    "src/renderer/src/*",
-    "src/locales/**/*.json"
+    "src/renderer/src/**/*.vue",
+    "src/preload/*.d.ts"
   ],
   "compilerOptions": {
     "target": "ESNext",
