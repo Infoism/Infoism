@@ -11,10 +11,14 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "release": "turbo run release",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@typescript-eslint/parser": "^5.48.0",
     "eslint": "^8.28.0",
     "eslint-config-airbnb-base": "^15.0.0",

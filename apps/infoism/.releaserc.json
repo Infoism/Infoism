@@ -6,5 +6,42 @@
       "prerelease": true
     }
   ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
+    [
+      "@semantic-release/exec",
+      {
+        "prepareCmd": "zip -qq -r infoism-${nextRelease.version}.zip dist readme.md package.json *.png"
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": "infoism-*.zip"
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "CHANGELOG.md",
+          "package.json"
+        ]
+      }
+    ]
+  ],
   "extends": "semantic-release-monorepo"
 }
