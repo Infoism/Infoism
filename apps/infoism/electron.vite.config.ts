@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import unocss from 'unocss/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   main: {
@@ -22,6 +23,7 @@ export default defineConfig({
     plugins: [
       vue(),
       unocss(),
+      vueJsx({}),
       Components({
         resolvers: [
           ArcoResolver({
