@@ -16,7 +16,7 @@
       }
     ],
     [
-      "@semantic-release/npm",
+      "@colbyfayock/semantic-release-pnpm",
       {
         "npmPublish": false
       }
