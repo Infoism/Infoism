@@ -1,0 +1,10 @@
+{
+  "branches": [
+    "main",
+    {
+      "name": "alpha",
+      "prerelease": true
+    }
+  ],
+  "extends": "semantic-release-monorepo"
+}
