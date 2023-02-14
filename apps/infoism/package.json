@@ -18,7 +18,8 @@
     "build:win": "electron-builder --win --config",
     "build:mac": "electron-builder --mac --config",
     "build:linux": "electron-builder --linux --config",
-    "build:web": "electron-vite build"
+    "build:web": "electron-vite build",
+    "release": "semantic-release"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^1.0.2",
