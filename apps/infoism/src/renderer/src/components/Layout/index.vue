@@ -22,7 +22,6 @@ import Header from '@/components/Header/index.vue'
 </template>
 
 <style lang="scss">
-@import '@/assets/css/styles.scss';
 
 .microapp-container {
   background-color: var(--color-bg-1);

@@ -1,14 +1,12 @@
 <template>
-  <div v-for="(app, index) in MicroApps" v-show="route.path.startsWith(app.activeRule)" :id="app.name" :key="index"
-    h-full w-full></div>
+  <WujieVue v-for="(app, index) in MicroApps" :url="app.entry" :name="app.name" :key="index" :alive="true" h-full
+    w-full></WujieVue>
 </template>
 
 <script setup lang="ts">
-import { generateMicroAppsConfiguration } from '@/services/microapps'
-import { useRoute } from 'vue-router'
+import { usePluginsMicroapp } from '@/store/usePlugins'
 
-const MicroApps = generateMicroAppsConfiguration()
-const route = useRoute()
+const MicroApps = usePluginsMicroapp()
 
 </script>
 

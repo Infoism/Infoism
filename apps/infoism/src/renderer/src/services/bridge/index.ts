@@ -3,7 +3,6 @@ import { injectBridge, IPCChannelsArr, IPCChannels } from '@infoism/lib'
 function bridgeGenerator(channel: string) {
   return async (...args) => {
     const res = await window.electron.ipcRenderer.invoke(channel, ...args)
-    console.log(`bridge invoked: ${channel} -> `, res)
     return res
   }
 }

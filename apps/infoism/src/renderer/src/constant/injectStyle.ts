@@ -1,4 +1,5 @@
-body[arco-theme='dark'][skin-name='default'] {
+export const GLOBAL_STYLE = `
+body[arco-theme=dark][skin-name=default] {
   --primary-1: var(--gold-1);
   --primary-2: var(--gold-2);
   --primary-3: var(--gold-3);
@@ -15,7 +16,8 @@ body[arco-theme='dark'][skin-name='default'] {
   --color-scrollbar-thumb-hover: rgb(var(--gray-7));
   --scrollbar-width: 6px;
 }
-body[skin-name='default'] {
+
+body[skin-name=default] {
   --primary-1: var(--orange-1);
   --primary-2: var(--orange-2);
   --primary-3: var(--orange-3);
@@ -56,7 +58,6 @@ html {
 }
 
 body {
-  // hack arco 模态框的bug
   width: auto !important;
   color: var(--color-text-2);
   -webkit-app-region: drag;
@@ -90,8 +91,4 @@ h4,
 h5,
 h6 {
   color: var(--color-text-1);
-}
-
-#__qiankun_microapp_wrapper_for_vue_app__ {
-  height: 100%;
-}
+}`

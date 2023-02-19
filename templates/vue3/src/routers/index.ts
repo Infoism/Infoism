@@ -1,20 +1,22 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+import Bridges from '../components/Bridges.vue'
+import Events from '../components/Events.vue'
 
 const routes = [
   {
     name: 'home',
     path: '/',
-    component: import('../components/Bridges.vue')
+    component: Bridges
   },
   {
     name: 'Bridge',
     path: '/bridge',
-    component: import('../components/Bridges.vue')
+    component: Bridges
   },
   {
     name: 'Event',
     path: '/event',
-    component: import('../components/Events.vue')
+    component: Events
   }
 ]
 

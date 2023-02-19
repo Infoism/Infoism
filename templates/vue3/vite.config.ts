@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import qiankun from 'vite-plugin-qiankun'
 import env from './env.js'
 import unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -9,13 +8,15 @@ import Components from 'unplugin-vue-components/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const { port, name } = env
+const isDev = process.env.NODE_ENV === 'development'
+const base = isDev ? `//localhost:${port}` : ''
 
 export default defineConfig({
-  base: `//localhost:${port}`,
+  base,
   server: {
     port,
     cors: true,
-    origin: `//localhost:${port}`
+    origin: base
   },
   preview: {
     port
@@ -27,9 +28,6 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    qiankun(name, {
-      useDevMode: true
-    }),
     unocss(),
     Components({
       resolvers: [

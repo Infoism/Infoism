@@ -1,39 +1,17 @@
-import { App, Component, createApp } from 'vue'
+import { Component, createApp } from 'vue'
 import './style.scss'
 import MainApp from './App.vue'
-import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper'
 import i18next from '@infoism/locales'
 import i18NextVue from 'i18next-vue'
 import 'uno.css'
 import { router } from './routers'
 
-let app: App | null = null
-
 function initVueApp(App: Component) {
   return createApp(App).use(i18NextVue, { i18next }).use(router)
 }
 
-if (!qiankunWindow.__POWERED_BY_QIANKUN__) {
+function render() {
   initVueApp(MainApp).mount('#app')
-} else {
-  renderWithQiankun({
-    mount(props) {
-      app = initVueApp(MainApp)
-      app.mount(
-        (props.container
-          ? props.container.querySelector('#app')
-          : document.getElementById('app')) as Element
-      )
-    },
-    bootstrap() {
-      // bootstrap
-    },
-    update() {
-      // update
-    },
-    unmount() {
-      // unmount
-      app?.unmount()
-    }
-  })
 }
+
+render()

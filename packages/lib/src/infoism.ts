@@ -9,11 +9,11 @@ const rawInfoismInstance: iInfoism = {}
  * @returns global infoism api instance
  */
 export function getInfoismInstance(): iInfoism {
-  if (window.__infoism_instance) {
-    return window.__infoism_instance
+  if (window.parent.__infoism_instance) {
+    return window.parent.__infoism_instance
   }
   const infoism = new Proxy<iInfoism>(rawInfoismInstance, infoismHandler)
-  window.__infoism_instance = infoism
+  window.parent.__infoism_instance = infoism
   return infoism
 }
 
