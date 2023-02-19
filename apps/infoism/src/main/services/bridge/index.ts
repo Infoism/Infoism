@@ -14,7 +14,7 @@ export default function initApiHandlers(mainWindow) {
   const bridges: Record<string, cb> = {}
   function collectBridge(channel: string, handler: bridgeHandler) {
     bridges[channel] = (data: any, callback: cb) => {
-      handler(data, callback)
+      return handler(data, callback)
     }
   }
   handle('bridge', (_event, currentChannel: string, data: any, cid: cid) => {
@@ -24,7 +24,8 @@ export default function initApiHandlers(mainWindow) {
         mainWindow.webContents.send('bridge:callback', cid, ...args)
       }
     }
-    bridges[currentChannel]?.(data, callback)
+    const res = bridges[currentChannel]?.(data, callback)
+    return res
   })
   // 下载插件
   collectBridge('downloadPlugin', (repo: string, callback?: cb) => {
