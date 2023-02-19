@@ -16,8 +16,17 @@ type IBridgeWindowControl = Record<IPCChannels, Bridge> & {
 
 // 插件相关bridge
 const PluginsChannels = ['downloadPlugin'] as const
+
+type dataDownloadPlugin = {
+  repo: string
+  id: string
+}
+
 type IBridgePlugins = {
-  downloadPlugins: (repo: string, callback?: (progress: number) => void) => Promise<void>
+  downloadPlugins: (
+    data: dataDownloadPlugin,
+    callback?: (progress: number) => void
+  ) => Promise<void>
 }
 
 export const IPCChannelsArr = [...WindowControlChannels, ...PluginsChannels] as const

@@ -13,7 +13,16 @@ async function getReleaseAssets(repo) {
   return data
 }
 
-export async function downloadPlugin(repo: string, callback?: (progress: number) => void) {
+type dataDownloadPlugin = {
+  repo: string
+  id: string
+}
+
+export async function downloadPlugin(
+  data: dataDownloadPlugin,
+  callback?: (progress: number) => void
+) {
+  const { repo, id } = data || {}
   const tempDir = os.tmpdir()
   const { data: release } = await getReleaseAssets(repo)
   const { assets = [] } = release as { assets: { browser_download_url: string }[] }
@@ -23,7 +32,7 @@ export async function downloadPlugin(repo: string, callback?: (progress: number)
 
   // 检查是否存在插件资源
   if (!pluginAssets.length) {
-    return
+    throw new Error('The repo did not release.')
   }
 
   const targetPlugin = pluginAssets[0].browser_download_url
@@ -36,20 +45,20 @@ export async function downloadPlugin(repo: string, callback?: (progress: number)
 
   // 检查是否下载成功
   if (!fs.existsSync(tempPluginPath)) {
-    return
+    throw new Error('Plugin download error.')
   }
 
   const pluginDir = path.resolve(app.getPath('appData'), './infoism/plugins')
   if (!fs.existsSync(pluginDir)) {
     fs.mkdirSync(pluginDir)
   }
-  const currPluginPath = path.resolve(pluginDir, '1')
+  const currPluginPath = path.resolve(pluginDir, id)
   try {
     extract(tempPluginPath, {
       dir: currPluginPath
     })
   } catch (e) {
-    console.log(e)
+    throw new Error(e as string)
   }
 
   return release

@@ -17,19 +17,19 @@ export default function initApiHandlers(mainWindow) {
       return handler(data, callback)
     }
   }
-  handle('bridge', (_event, currentChannel: string, data: any, cid: cid) => {
+  handle('bridge', async (_event, currentChannel: string, data: any, cid: cid) => {
     let callback = (..._args) => {}
     if (cid) {
       callback = (...args) => {
         mainWindow.webContents.send('bridge:callback', cid, ...args)
       }
     }
-    const res = bridges[currentChannel]?.(data, callback)
+    const res = await bridges[currentChannel]?.(data, callback)
     return res
   })
   // 下载插件
-  collectBridge('downloadPlugin', (repo: string, callback?: cb) => {
-    downloadPlugin(repo, callback)
+  collectBridge('downloadPlugin', async (data, callback?: cb) => {
+    return await downloadPlugin(data, callback)
   })
   // 关闭窗口
   collectBridge('close', () => {
