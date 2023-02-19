@@ -1,6 +1,6 @@
 {
   "name": "infoism",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -11,7 +11,8 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "release": "turbo run release"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^5.48.0",
@@ -19,8 +20,10 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "latest",
-    "turbo": "latest",
+    "prettier": "^2.8.4",
+    "semantic-release": "^20.1.0",
+    "semantic-release-monorepo": "^7.0.5",
+    "turbo": "^1.7.4",
     "typescript": "^4.9.4"
   },
   "engines": {
@@ -29,5 +32,9 @@
   "dependencies": {
     "i18next": "^22.4.8"
   },
-  "packageManager": "pnpm@7.18.0"
+  "packageManager": "pnpm@7.18.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Infoism/Infoism.git"
+  }
 }

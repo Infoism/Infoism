@@ -1,6 +1,6 @@
 import { GLOBAL_STYLE } from '@/constant/injectStyle'
 import { useTheme } from '@/store/useTheme'
-import { effect } from 'vue'
+import { effect, reactive } from 'vue'
 
 const pluginInjectStyle = {
   cssBeforeLoaders: [

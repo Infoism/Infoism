@@ -1,26 +1,28 @@
 import { ipcRenderer } from 'electron'
 
-enum IPCChannels {
-  CLOSE = 'close',
-  MINIMIZE = 'minimize',
-  MAXIMIZE = 'maximize',
-  UN_MAXIMIZE = 'unmaximize',
-  IS_MAXIMIZED = 'isMaximized'
-}
+// 窗口相关Bridge
+type WindowControlChannels = 'close' | 'minimize' | 'maximize' | 'unmaximize' | 'isMaximized'
+// 网络请求相关Bridge
+type RequestChannels = 'fetchGithubFile'
+type IPCChannels = WindowControlChannels | RequestChannels
+
 function invokeMethodGenerator(channel: IPCChannels) {
-  return async () => {
-    const res = await ipcRenderer.invoke(channel)
+  return async (...args) => {
+    const res = await ipcRenderer.invoke(channel, ...args)
     return res
   }
 }
 
 function initPreloadApi() {
   return {
-    close: invokeMethodGenerator(IPCChannels.CLOSE),
-    minimize: invokeMethodGenerator(IPCChannels.MINIMIZE),
-    maximize: invokeMethodGenerator(IPCChannels.MAXIMIZE),
-    unMaximize: invokeMethodGenerator(IPCChannels.UN_MAXIMIZE),
-    isMaximized: invokeMethodGenerator(IPCChannels.IS_MAXIMIZED)
+    // 窗口相关Bridge
+    close: invokeMethodGenerator('close'),
+    minimize: invokeMethodGenerator('maximize'),
+    maximize: invokeMethodGenerator('maximize'),
+    unMaximize: invokeMethodGenerator('unmaximize'),
+    isMaximized: invokeMethodGenerator('isMaximized'),
+    // 请求
+    fetchGithubFile: invokeMethodGenerator('fetchGithubFile')
   }
 }
 

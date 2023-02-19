@@ -1,6 +1,7 @@
 import ModalSettings from '@/components/Modal/ModalSettings.vue'
 import ModalPluginStore from '@/components/Modal/ModalPluginStore.vue'
 import { ModalConfig } from '@arco-design/web-vue'
+import { h } from 'vue'
 
 export const SettingsModal: { titleAlign: 'start' } & ModalConfig = {
   title: '设置',

@@ -1,3 +1,5 @@
+import { reactive } from 'vue'
+
 // @unocss-include
 export function loadPluginsMicroapp() {
   // load plugins from bridge

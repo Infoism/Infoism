@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/components/Layout/index.vue'
 import MicroApp from '@/components/MicroApp/MicroApp.vue'
 import { loadPluginsMicroapp } from '@/services/plugins'
+import { h } from 'vue'
 
 function generateMicroApp(app) {
   const { entry, name } = app

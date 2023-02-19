@@ -1,17 +1,22 @@
 import { createInstanceNamespace, NAMESPACES } from '../../utils/proxyHandlers'
 
-export enum BRIDGE_NAMES {
-  CLOSE = 'close',
-  MAXIMIZE = 'maximize',
-  MINIMIZE = 'minimize',
-  UN_MAXIMIZE = 'unmaximize',
-  IS_MAXIMIZED = 'isMaximized'
-}
+// 窗口相关Bridge
+const WindowControlChannels = [
+  'close',
+  'minimize',
+  'maximize',
+  'unmaximize',
+  'isMaximized'
+] as const
+// 网络请求相关Bridge
+const RequestChannels = ['fetchGithubFile'] as const
+export const IPCChannelsArr = [...WindowControlChannels, ...RequestChannels] as const
+export type IPCChannels = (typeof IPCChannelsArr)[number]
 
-interface IBridge extends Record<BRIDGE_NAMES, () => unknown> {}
-type Bridge = (...args: any[]) => void
+interface IBridge extends Record<IPCChannels, Bridge> {}
+type Bridge = (...args: any[]) => Promise<unknown>
 
-export const bridge = createInstanceNamespace<IBridge>(NAMESPACES.BRIDGE)
-export const injectBridge = (bridgeName: BRIDGE_NAMES, cb: Bridge) => {
+export const bridge: IBridge = createInstanceNamespace<IBridge>(NAMESPACES.BRIDGE)
+export const injectBridge = (bridgeName: IPCChannels, cb: Bridge) => {
   bridge[bridgeName] = cb
 }

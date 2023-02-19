@@ -2,7 +2,6 @@ import { resolve } from 'path'
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
 import unocss from 'unocss/vite'
-import AutoImport from 'unplugin-auto-import/vite'
 import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -23,11 +22,6 @@ export default defineConfig({
     },
     plugins: [
       vue(),
-      AutoImport({
-        imports: ['vue', '@vueuse/core'],
-        dts: true,
-        resolvers: [ArcoResolver()]
-      }),
       unocss(),
       vueJsx({}),
       Components({

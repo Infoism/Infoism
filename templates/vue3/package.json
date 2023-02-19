@@ -1,6 +1,6 @@
 {
   "name": "@infoism/template-vue3",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@infoism/core": "*",
-    "@infoism/locales": "*",
+    "@infoism/core": "workspace:*",
+    "@infoism/locales": "workspace:*",
     "i18next": "^22.4.8",
     "i18next-vue": "^2.1.1",
     "unocss": "^0.48.0",

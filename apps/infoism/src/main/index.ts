@@ -1,6 +1,7 @@
 import { app, shell, BrowserWindow, protocol } from 'electron'
 import * as path from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import icon from '../../resources/icon.png?asset'
 import installExtensions, {
   REACT_DEVELOPER_TOOLS,
   VUEJS3_DEVTOOLS
@@ -19,13 +20,7 @@ function createWindow(): void {
     frame: false,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'win32'
-      ? {
-          icon: path.join(__dirname, '../../build/icon.ico')
-        }
-      : {
-          icon: path.join(__dirname, '../../build/icon.png')
-        }),
+    ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false,
