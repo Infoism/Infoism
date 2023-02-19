@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/apps/infoism",
+      "runtimeExecutable": "${workspaceRoot}/apps/infoism/node_modules/.bin/electron-vite",
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/apps/infoism/node_modules/.bin/electron-vite.cmd"
+      },
+      "runtimeArgs": [
+        "--sourcemap"
+      ]
+    }
+  ]
+}

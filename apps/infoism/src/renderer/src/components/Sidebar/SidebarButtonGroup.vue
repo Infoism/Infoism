@@ -16,6 +16,7 @@ import Draggable from 'vuedraggable'
 import { RouterLink } from 'vue-router'
 import { useSidebar, buttonGroupOptions, ButtonOption } from '@/composable/useSidebar'
 import { useRoute } from 'vue-router'
+import { defineProps } from 'vue';
 
 // props definition
 defineProps<{

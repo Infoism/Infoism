@@ -12,9 +12,7 @@ export function loadPluginsMicroapp() {
       icon: 'i-carbon-logo-vue',
       entry: import.meta.env.DEV
         ? '//localhost:3001'
-        : 'C:\\Code\\infoism\\templates\\vue3\\dist\\index.html',
-      donateSite: 'https://buymeacoffee.com/pidanmeng',
-      description: 'A micro app demo powered by vue'
+        : 'C:\\Code\\infoism\\templates\\vue3\\dist\\index.html'
     },
     {
       name: 'demo',
@@ -22,9 +20,7 @@ export function loadPluginsMicroapp() {
       icon: 'i-carbon-logo-vue',
       entry: import.meta.env.DEV
         ? '//localhost:3002'
-        : 'C:\\Code\\infoism-plugin-demo\\dist\\index.html',
-      donateSite: 'https://buymeacoffee.com/pidanmeng',
-      description: 'A micro app demo powered by vue'
+        : 'C:\\Code\\infoism-plugin-demo\\dist\\index.html'
     }
   ])
 }

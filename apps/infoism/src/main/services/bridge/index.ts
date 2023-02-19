@@ -1,5 +1,9 @@
 import { ipcMain } from 'electron'
+import { downloadPlugin } from './plugins'
 
+type cb = (...args: any[]) => void
+type bridgeHandler = (data?: any, callback?: cb) => void
+type cid = null | number
 /**
  * 初始化bridge
  * @param mainWindow 窗口实例
@@ -7,24 +11,43 @@ import { ipcMain } from 'electron'
  */
 export default function initApiHandlers(mainWindow) {
   const { handle } = ipcMain
+  const bridges: Record<string, cb> = {}
+  function collectBridge(channel: string, handler: bridgeHandler) {
+    bridges[channel] = (data: any, callback: cb) => {
+      handler(data, callback)
+    }
+  }
+  handle('bridge', (_event, currentChannel: string, data: any, cid: cid) => {
+    let callback = (..._args) => {}
+    if (cid) {
+      callback = (...args) => {
+        mainWindow.webContents.send('bridge:callback', cid, ...args)
+      }
+    }
+    bridges[currentChannel]?.(data, callback)
+  })
+  // 下载插件
+  collectBridge('downloadPlugin', (repo: string, callback?: cb) => {
+    downloadPlugin(repo, callback)
+  })
   // 关闭窗口
-  handle('close', () => {
+  collectBridge('close', () => {
     mainWindow?.close()
   })
   // 最大化
-  handle('maximize', () => {
+  collectBridge('maximize', () => {
     mainWindow?.maximize()
   })
   // 最小化
-  handle('minimize', () => {
+  collectBridge('minimize', () => {
     mainWindow?.minimize()
   })
   // 窗口化
-  handle('unmaximize', () => {
+  collectBridge('unmaximize', () => {
     mainWindow?.unmaximize()
   })
   // 判断窗口是否最大化
-  handle('isMaximized', () => {
+  collectBridge('isMaximized', () => {
     return mainWindow.isMaximized()
   })
   return

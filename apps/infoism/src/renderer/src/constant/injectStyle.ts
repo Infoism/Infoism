@@ -10,6 +10,16 @@ body[arco-theme=dark][skin-name=default] {
   --primary-8: var(--gold-8);
   --primary-9: var(--gold-9);
   --primary-10: var(--gold-10);
+  --link-1: var(--gold-1);
+  --link-2: var(--gold-2);
+  --link-3: var(--gold-3);
+  --link-4: var(--gold-4);
+  --link-5: var(--gold-5);
+  --link-6: var(--gold-6);
+  --link-7: var(--gold-7);
+  --link-8: var(--gold-8);
+  --link-9: var(--gold-9);
+  --link-10: var(--gold-10);
   --color-menu-light-bg: var(--color-bg-3);
   --color-scrollbar-track-bg: rgb(var(--gray-4));
   --color-scrollbar-thumb: rgb(var(--gray-6));
@@ -28,6 +38,16 @@ body[skin-name=default] {
   --primary-8: var(--orange-8);
   --primary-9: var(--orange-9);
   --primary-10: var(--orange-10);
+  --link-1: var(--orange-1);
+  --link-2: var(--orange-2);
+  --link-3: var(--orange-3);
+  --link-4: var(--orange-4);
+  --link-5: var(--orange-5);
+  --link-6: var(--orange-6);
+  --link-7: var(--orange-7);
+  --link-8: var(--orange-8);
+  --link-9: var(--orange-9);
+  --link-10: var(--orange-10);
   --color-menu-light-bg: var(--color-bg-3);
   --color-scrollbar-track-bg: rgb(var(--gray-6));
   --color-scrollbar-thumb: rgb(var(--gray-5));
@@ -38,6 +58,7 @@ body[skin-name=default] {
 /* scrollbar */
 ::-webkit-scrollbar {
   width: var(--scrollbar-width);
+  height: var(--scrollbar-width);
 }
 
 ::-webkit-scrollbar-track {
@@ -76,6 +97,9 @@ body {
 
 a {
   color: var(--color-text-2);
+  &:hover {
+    color: var(--link-6)
+  }
 }
 
 button,

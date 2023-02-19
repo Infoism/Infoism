@@ -1,4 +1,4 @@
-const events = ['close', 'maximize', 'minimize', 'unmaximize']
+const eventsWindowController = ['close', 'maximize', 'minimize', 'unmaximize']
 
 /**
  * 初始化事件监听器
@@ -7,7 +7,8 @@ const events = ['close', 'maximize', 'minimize', 'unmaximize']
  */
 export default function initEventListeners(mainWindow) {
   const { webContents } = mainWindow
-  events.forEach((eventName) => {
+  // windows窗口控制事件
+  eventsWindowController.forEach((eventName) => {
     mainWindow.on(eventName, (_e) => {
       webContents.send(`event:${eventName}`)
     })

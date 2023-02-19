@@ -8,7 +8,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+    build: {
+      rollupOptions: {
+        external: ['axios']
+      }
+    }
   },
   preload: {
     plugins: [externalizeDepsPlugin()]
